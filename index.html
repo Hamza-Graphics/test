@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Hamza Abdulfattah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#5D5CDE',
+                            dark: '#4a49b1',
+                            light: '#7d7ce6'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+        }
+        
+        .rtl-content {
+            direction: rtl;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 20px rgba(93, 92, 222, 0.2);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .section {
+            scroll-margin-top: 80px;
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2);
+            color: #5D5CDE;
+        }
+        
+        .dark .service-card:hover .service-icon {
+            color: #7d7ce6;
+        }
+        
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dark .language-dropdown {
+            background-color: #374151;
+        }
+        
+        .language-dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .dark .language-dropdown a {
+            color: white;
+        }
+        
+        .language-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .dark .language-dropdown a:hover {
+            background-color: #4B5563;
+        }
+        
+        .language-switcher:hover .language-dropdown {
+            display: block;
+        }
+        
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .Hamza{
+          font-size: 13px;
+        }
+        
+        /* Animation for sidebar movement */
+        .sidebar-ar {
+            right: 0;
+            left: auto;
+        }
+        
+        .sidebar-en {
+            left: 0;
+            right: auto;
+        }
+        
+        /* Transition for sidebar movement */
+        #sidebar {
+            transition: left 0.3s ease, right 0.3s ease;
+            z-index: 40; /* إضافة z-index للقائمة الجانبية */
+        }
+        
+        .software-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .software-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Download button position */
+        #downloadCV.en {
+            right: 20px;
+            left: auto;
+        }
+        
+        #downloadCV.ar {
+            left: 20px;
+            right: auto;
+        }
+        
+        /* Experience timeline direction */
+        .timeline-en {
+            border-left: 4px solid #5D5CDE;
+            border-right: none;
+            padding-left: 24px;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: auto;
+        }
+        
+        .timeline-ar {
+            border-right: 4px solid #5D5CDE;
+            border-left: none;
+            padding-right: 24px;
+            padding-left: 0;
+            margin-right: 0;
+            margin-left: auto;
+        }
+        
+        .timeline-dot-en {
+            left: -8px;
+            right: auto;
+        }
+        
+        .timeline-dot-ar {
+            right: -8px;
+            left: auto;
+        }
+        
+        .dark .timeline-en {
+            border-left-color: #7d7ce6;
+        }
+        
+        .dark .timeline-ar {
+            border-right-color: #7d7ce6;
+        }
+        
+        /* الحل لمشكلة التداخل - إضافة هذه الأنماط */
+        #sidebar {
+            z-index: 40;
+        }
+        
+        main {
+            position: relative;
+            z-index: 30;
+        }
+        
+        .section {
+            scroll-margin-top: 100px;
+        }
+        
+        @media (max-width: 767px) {
+            #sidebar {
+                z-index: 45;
+                width: 100%;
+                left: -100%;
+                transition: left 0.3s ease;
+            }
+            
+            #sidebar.active {
+                left: 0;
+            }
+            
+            main {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+        
+        .rtl-content #sidebar.sidebar-ar {
+            z-index: 40;
+        }
+        
+        .rtl-content main {
+            z-index: 30;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    
+    <!-- Header with Dark Mode Toggle and Language Switcher -->
+    <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-primary dark:text-primary-light flex items-center">
+                <span class="ml-2">📄</span> <span data-translate="resume">CV</span>
+            </h1>
+            <div class="flex items-center space-x-4">
+                <div class="language-switcher">
+                    <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors flex items-center">
+                        <span class="flag-icon bg-blue-600 text-white">EN</span>
+                        <i class="fas fa-chevron-down text-xs mr-1 ml-1"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="#" data-lang="en">
+                            <span class="flag-icon bg-blue-600 text-white">EN</span>
+                            English
+                        </a>
+                        <a href="#" data-lang="ar">
+                            <span class="flag-icon bg-green-600 text-white">AR</span>
+                            العربية
+                        </a>
+                    </div>
+                </div>
+                <button id="toggleNav" class="md:hidden text-gray-700 dark:text-gray-300 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation -->
+        <nav id="mobileNav" class="hidden md:hidden absolute w-full bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 py-3">
+            <ul class="flex flex-col items-center">
+                <li class="w-full text-center"><a href="#personal" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="personal_info">Personal Information</a></li>
+                <li class="w-full text-center"><a href="#summary" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="personal_summary">Personal Summary</a></li>
+                <li class="w-full text-center"><a href="#experience" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="experience">Work Experience</a></li>
+                <li class="w-full text-center"><a href="#skills" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="skills">Skills</a></li>
+                <li class="w-full text-center"><a href="#services" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="services">Services</a></li>
+                <li class="w-full text-center"><a href="#portfolio" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="portfolio">Portfolio</a></li>
+                <li class="w-full text-center"><a href="#contact" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-translate="contact_info">Contact Information</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Desktop Side Navigation -->
+    <nav id="sidebar" class="hidden md:block fixed top-0 h-full w-48 bg-white dark:bg-gray-800 shadow-lg pt-24 transition-all duration-300 sidebar-en">
+        <ul class="flex flex-col space-y-2">
+            <li><a href="#personal" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="personal_info">Personal Information</a></li>
+            <li><a href="#summary" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="personal_summary">Personal Summary</a></li>
+            <li><a href="#experience" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="experience">Work Experience</a></li>
+            <li><a href="#skills" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="skills">Skills</a></li>
+            <li><a href="#services" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="services">Services</a></li>
+            <li><a href="#portfolio" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="portfolio">Portfolio</a></li>
+            <li><a href="#contact" class="block py-3 px-4 hover:bg-primary hover:text-white dark:hover:bg-primary-dark transition-colors duration-300 rounded-r-lg" data-translate="contact_info">Contact Information</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto pt-24 pb-16 md:ml-52 px-4">
+        
+        <!-- Personal Information Section -->
+        <section id="personal" class="section mb-16 opacity-0">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-8">
+                        <div class="w-32 h-32 rounded-full mb-4 md:mb-0 md:mr-6 shadow-lg overflow-hidden relative">
+                            <!-- إضافة خلفية زرقاء خلف الصورة -->
+                            <div class="absolute inset-0 bg-primary opacity-10 rounded-full"></div>
+                            <img src="https://medqz.github.io/files/حمزة.png" alt="Hamza Abdulfattah" class="w-full h-full object-cover relative z-10">
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-2 text-primary dark:text-primary-light" data-translate="name_full">Hamza Abdulfattah Abdullah Saeed</h2>
+                            <h3 class="text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-4" data-translate="job_title">Graphic Designer and Video Editor</h3>
+                            <div class="inline-block bg-primary text-white dark:bg-primary-dark py-1 px-4 rounded-full text-sm" data-translate="ready_to_work">Ready to work ✨</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-center card-hover">
+                            <span class="text-primary dark:text-primary-light text-2xl mr-3"><i class="fas fa-calendar-alt"></i></span>
+                            <div>
+                                <h4 class="font-semibold text-gray-500 dark:text-gray-400 text-sm" data-translate="birthdate">Date of Birth</h4>
+                                <p>26/06/2001</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-center card-hover">
+                            <span class="text-primary dark:text-primary-light text-2xl mr-3"><i class="fas fa-flag"></i></span>
+                            <div>
+                                <h4 class="font-semibold text-gray-500 dark:text-gray-400 text-sm" data-translate="nationality">Nationality</h4>
+                                <p data-translate="yemeni">Yemeni</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-center card-hover">
+                            <span class="text-primary dark:text-primary-light text-2xl mr-3"><i class="fas fa-map-marker-alt"></i></span>
+                            <div>
+                                <h4 class="font-semibold text-gray-500 dark:text-gray-400 text-sm" data-translate="location">Location</h4>
+                                <p data-translate="taiz_yemen">Taiz, Yemen</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-center card-hover">
+                            <span class="text-primary dark:text-primary-light text-2xl mr-3"><i class="fas fa-briefcase"></i></span>
+                            <div>
+                                <h4 class="font-semibold text-gray-500 dark:text-gray-400 text-sm" data-translate="job_title_label">Job Title</h4>
+                                <p data-translate="graphic_designer">Graphic Designer and Video Editor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Summary Section -->
+        <section id="summary" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="personal_summary">Profile</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <p class="text-lg leading-relaxed" data-translate="summary_text">
+                    Professional Graphic Designer with proven experience since 2021 at <strong>Ibn Al-Haj Group</strong>. Specialized in <strong>agricultural label design</strong> (fertilizers, pesticides, seeds) with full knowledge of <strong>printing and packaging standards</strong>.
+                    Providing complete creative services including <strong>product design, branding, marketing visuals, video production, and editing</strong>, ensuring high-quality results aligned with brand requirements.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="experience">Work Experience</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <div class="relative timeline-en pl-6 pb-2">
+                    <div class="absolute timeline-dot-en top-0 w-4 h-4 rounded-full bg-primary dark:bg-primary-light"></div>
+                    <div class="mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <h3 class="text-xl font-bold text-primary dark:text-primary-light mb-2 md:mb-0" data-translate="graphic_designer">Graphic Designer</h3>
+                            <div class="inline-block bg-primary text-white dark:bg-primary-dark py-1 px-4 rounded-full text-sm">2021 - <span data-translate="present">Present</span></div>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-4">Ibn Al-Haj Group</h4>
+                        
+                        <ul class="space-y-3 mt-6">
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-tag"></i></span>
+                                <p data-translate="exp1">Designed agricultural product labels with compliance to printing & packaging standards.</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-print"></i></span>
+                                <p data-translate="exp2">Created print designs (brochures, catalogs, posters, roll-ups, packaging).</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-fingerprint"></i></span>
+                                <p data-translate="exp3">Built full brand identities for companies and products.</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-bullhorn"></i></span>
+                                <p data-translate="exp4">Designed marketing visuals and social media ads (images & videos).</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-check-circle"></i></span>
+                                <p data-translate="exp5">Improved design and print quality according to brand guidelines.</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-video"></i></span>
+                                <p data-translate="exp6">Produced promotional videos and motion graphics.</p>
+                            </li>
+                            <li class="service-card p-3 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-start transform hover:scale-[1.02] transition-transform">
+                                <span class="service-icon text-lg text-primary dark:text-primary-light mr-3"><i class="fas fa-cube"></i></span>
+                                <p data-translate="exp7">Delivered realistic product mockups and packaging visualizations.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="skills">Skills</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="software-logo mx-auto">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator">
+                        </div>
+                        <div class="flex items-center mb-3 justify-center">
+                            <h3 class="text-lg font-bold">Adobe Illustrator</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-center" data-translate="skill1">Logo & Label Design</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                            <div class="progress-bar bg-primary dark:bg-primary-light rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <span class="skill1-percentage text-sm text-gray-500 dark:text-gray-400">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="software-logo mx-auto">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop">
+                        </div>
+                        <div class="flex items-center mb-3 justify-center">
+                            <h3 class="text-lg font-bold">Adobe Photoshop</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-center" data-translate="skill2">Marketing & Image Editing</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                            <div class="progress-bar bg-primary dark:bg-primary-light rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <span class="skill2-percentage text-sm text-gray-500 dark:text-gray-400">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="software-logo mx-auto">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg" alt="Adobe After Effects">
+                        </div>
+                        <div class="flex items-center mb-3 justify-center">
+                            <h3 class="text-lg font-bold">Adobe After Effects</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-center" data-translate="skill3">Motion Graphics & Video Creation</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                            <div class="progress-bar bg-primary dark:bg-primary-light rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <span class="skill3-percentage text-sm text-gray-500 dark:text-gray-400">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="software-logo mx-auto">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Adobe Premiere Pro">
+                        </div>
+                        <div class="flex items-center mb-3 justify-center">
+                            <h3 class="text-lg font-bold">Adobe Premiere Pro</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3 text-center" data-translate="skill4">Video Editing</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                            <div class="progress-bar bg-primary dark:bg-primary-light rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <span class="skill4-percentage text-sm text-gray-500 dark:text-gray-400">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary dark:text-primary-light" data-translate="expertise">Expertise:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <span class="text-primary dark:text-primary-light mr-2"><i class="fas fa-check-circle"></i></span>
+                            <p data-translate="expertise1">Agricultural product design (fertilizers, pesticides, seeds)</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-primary dark:text-primary-light mr-2"><i class="fas fa-check-circle"></i></span>
+                            <p data-translate="expertise2">Printing, packaging & labeling standards</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-primary dark:text-primary-light mr-2"><i class="fas fa-check-circle"></i></span>
+                            <p data-translate="expertise3">Marketing & social media design</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-primary dark:text-primary-light mr-2"><i class="fas fa-check-circle"></i></span>
+                            <p data-translate="expertise4">Branding & corporate identity design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="services">Services</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="service-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl text-primary dark:text-primary-light mr-3"><i class="fas fa-seedling"></i></span>
+                            <h3 class="text-lg font-bold" data-translate="service1">Agricultural product design</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="service1_desc">Comprehensive design for agricultural products and their labels</p>
+                    </div>
+                    
+                    <div class="service-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl text-primary dark:text-primary-light mr-3"><i class="fas fa-palette"></i></span>
+                                                        <h3 class="text-lg font-bold" data-translate="service2">Complete visual identity</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="service2_desc">Creating a complete visual identity for companies and products</p>
+                    </div>
+                    
+                    <div class="service-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl text-primary dark:text-primary-light mr-3"><i class="fas fa-bullhorn"></i></span>
+                            <h3 class="text-lg font-bold" data-translate="service3">Marketing campaigns</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="service3_desc">Preparing and implementing marketing and advertising campaigns</p>
+                    </div>
+                    
+                    <div class="service-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl text-primary dark:text-primary-light mr-3"><i class="fas fa-print"></i></span>
+                            <h3 class="text-lg font-bold" data-translate="service4">Print quality optimization</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="service4_desc">Ensuring print and packaging quality for products</p>
+                    </div>
+                    
+                    <div class="service-card p-5 border-2 border-gray-100 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light transition-colors md:col-span-2">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl text-primary dark:text-primary-light mr-3"><i class="fas fa-video"></i></span>
+                            <h3 class="text-lg font-bold" data-translate="service5">Promotional video production</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="service5_desc">Producing professional promotional videos with excellent editing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section (New) -->
+        <section id="portfolio" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="portfolio">Portfolio</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="https://shorturl.at/eLrYe" target="_blank" class="portfolio-card flex flex-col items-center p-5 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1 text-center" data-translate="portfolio">Portfolio</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center" data-translate="portfolio_link1">Portfolio Link 1</p>
+                    </a>
+                    
+                    <a href="https://drive.google.com/drive/folders/1km6njVaymDBRU0Xm_CvOICGYj30HhC2S?usp=sharing" target="_blank" class="portfolio-card flex flex-col items-center p-5 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1 text-center" data-translate="portfolio">Portfolio</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center" data-translate="portfolio_link2">Portfolio Link 2 - Google Drive</p>
+                    </a>
+                    
+                    <a href="https://www.behance.net/gallery/234205569/agricultural-products" target="_blank" class="portfolio-card flex flex-col items-center p-5 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fab fa-behance"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1 text-center">Behance</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center" data-translate="behance_gallery">Agricultural Products Gallery</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section mb-16 opacity-0">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold" data-translate="contact_info">Contact Information</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="mailto:humzahumdy770@gmail.com" class="contact-card flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1" data-translate="email">Email</h3>
+                            <p class="text-gray-600 dark:text-gray-400 Hamza">humzahumdy770@gmail.com</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://wa.me/967774661144?text=" target="_blank" class="contact-card flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-xl mr-4">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">WhatsApp</h3>
+                            <p class="text-gray-600 dark:text-gray-400">+967774661144</p>
+                        </div>
+                    </a>
+                    
+                    <div class="contact-card flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1" data-translate="phone">Phone</h3>
+                            <p class="text-gray-600 dark:text-gray-400">+967774661144</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg">
+                        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl mr-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1" data-translate="location">Location</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="taiz_yemen">Taiz, Yemen</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.linkedin.com/in/humza-humdy-465a81332/" target="_blank" class="contact-card flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg transform hover:scale-105 transition-all hover:shadow-lg md:col-span-2">
+                        <div class="w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center text-xl mr-4">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">LinkedIn</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="linkedin_profile">Hamza Abdulfattah</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="mt-10">
+                    <h3 class="text-xl font-bold mb-4 text-center" data-translate="contact_me">Contact Me</h3>
+                    <form id="contactForm" action="https://formspree.io/f/xldwwpgb" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium" data-translate="name">Name</label>
+                                <input type="text" id="name" name="name" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-base" data-translate="enter_name" placeholder="Enter your name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium" data-translate="email">Email</label>
+                                <input type="email" id="email" name="email" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-base" data-translate="enter_email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium" data-translate="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-base" data-translate="enter_subject" placeholder="Enter message subject" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium" data-translate="message">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-base" data-translate="enter_message" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="sendButton" class="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors">
+                                <span id="buttonText"><i class="fas fa-paper-plane mr-2"></i><span data-translate="send_message">Send Message</span></span>
+                                <span id="loadingSpinner" class="hidden"><i class="fas fa-spinner fa-spin mr-2"></i><span data-translate="sending">Sending...</span></span>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg text-center">
+                        <i class="fas fa-check-circle mr-2"></i> <span data-translate="success_message">Your message has been sent successfully! I will contact you as soon as possible.</span>
+                    </div>
+                    <div id="formError" class="hidden mt-4 p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg text-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i> <span data-translate="error_message">An error occurred while sending the message. Please try again.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Download CV Button -->
+        <div id="downloadCV" class="fixed bottom-5 z-40 en">
+            <button class="flex items-center bg-primary hover:bg-primary-dark text-white font-bold py-3 px-4 rounded-full shadow-lg transition-colors">
+                <i class="fas fa-download mr-2"></i>
+                <span class="hidden sm:inline" data-translate="download_cv">Download CV</span>
+                <span class="sm:hidden" data-translate="download">Download</span>
+            </button>
+        </div>
+        
+        <!-- Download Info Modal -->
+        <div id="downloadModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 hidden">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
+                <h3 class="text-xl font-bold mb-4 text-primary dark:text-primary-light" data-translate="download_cv">Download CV</h3>
+                <p class="mb-4" data-translate="download_instructions">To get a copy of the CV, please contact directly via:</p>
+                <div class="space-y-2">
+                    <div class="flex items-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <i class="fab fa-whatsapp text-green-500 text-xl mr-3"></i>
+                        <a href="https://wa.me/967774661144?text=" target="_blank" class="hover:text-primary dark:hover:text-primary-light transition-colors">WhatsApp: +967774661144</a>
+                    </div>
+                    <div class="flex items-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <i class="fas fa-envelope text-primary dark:text-primary-light text-xl mr-3"></i>
+                        <a href="mailto:humzahumdy770@gmail.com" class="hover:text-primary dark:hover:text-primary-light transition-colors">Email: humzahumdy770@gmail.com</a>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <button id="closeModal" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded transition-colors">
+                        <span data-translate="close">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Language translation system
+        const translations = {
+            en: {
+                resume: "CV",
+                personal_info: "Personal Information",
+                personal_summary: "Profile",
+                experience: "Work Experience",
+                skills: "Skills",
+                services: "Services",
+                portfolio: "Portfolio",
+                contact_info: "Contact Information",
+                name_full: "Hamza Abdulfattah Abdullah Saeed",
+                job_title: "Graphic Designer and Video Editor",
+                job_title_label: "Job Title",
+                ready_to_work: "Ready to work ✨",
+                birthdate: "Date of Birth",
+                nationality: "Nationality",
+                yemeni: "Yemeni",
+                location: "Location",
+                taiz_yemen: "Taiz, Yemen",
+                graphic_designer: "Graphic Designer and Video Editor",
+                present: "Present",
+                summary_text: "Professional Graphic Designer with proven experience since 2021 at <strong>Ibn Al-Haj Group</strong>. Specialized in <strong>agricultural label design</strong> (fertilizers, pesticides, seeds) with full knowledge of <strong>printing and packaging standards</strong>. Providing complete creative services including <strong>product design, branding, marketing visuals, video production, and editing</strong>, ensuring high-quality results aligned with brand requirements.",
+                exp1: "Designed agricultural product labels with compliance to printing & packaging standards.",
+                exp2: "Created print designs (brochures, catalogs, posters, roll-ups, packaging).",
+                exp3: "Built full brand identities for companies and products.",
+                exp4: "Designed marketing visuals and social media ads (images & videos).",
+                exp5: "Improved design and print quality according to brand guidelines.",
+                exp6: "Produced promotional videos and motion graphics.",
+                exp7: "Delivered realistic product mockups and packaging visualizations.",
+                skill1: "Logo & Label Design",
+                skill2: "Marketing & Image Editing",
+                skill3: "Motion Graphics & Video Creation",
+                skill4: "Video Editing",
+                expertise: "Expertise:",
+                expertise1: "Agricultural product design (fertilizers, pesticides, seeds)",
+                expertise2: "Printing, packaging & labeling standards",
+                expertise3: "Marketing & social media design",
+                expertise4: "Branding & corporate identity design",
+                service1: "Agricultural product design",
+                service1_desc: "Comprehensive design for agricultural products and their labels",
+                service2: "Complete visual identity",
+                service2_desc: "Creating a complete visual identity for companies and products",
+                service3: "Marketing campaigns",
+                service3_desc: "Preparing and implementing marketing and advertising campaigns",
+                service4: "Print quality optimization",
+                service4_desc: "Ensuring print and packaging quality for products",
+                service5: "Promotional video production",
+                service5_desc: "Producing professional promotional videos with excellent editing",
+                email: "Email",
+                phone: "Phone",
+                portfolio_link1: "Portfolio Link 1",
+                portfolio_link2: "Portfolio Link 2 - Google Drive",
+                linkedin_profile: "Hamza Abdulfattah",
+                behance_gallery: "Agricultural Products Gallery",
+                click_to_view: "Click here to view my work",
+                contact_me: "Contact Me",
+                name: "Name",
+                enter_name: "Enter your name",
+                enter_email: "Enter your email",
+                subject: "Subject",
+                enter_subject: "Enter message subject",
+                message: "Message",
+                enter_message: "Write your message here...",
+                send_message: "Send Message",
+                sending: "Sending...",
+                success_message: "Your message has been sent successfully! I will contact you as soon as possible.",
+                error_message: "An error occurred while sending the message. Please try again.",
+                download_cv: "Download CV",
+                download: "Download",
+                download_instructions: "To get a copy of the CV, please contact directly via:",
+                close: "Close"
+            },
+            ar: {
+                resume: "السيرة الذاتية",
+                personal_info: "المعلومات الشخصية",
+                personal_summary: "نبذة شخصية",
+                experience: "الخبرات العملية",
+                skills: "المهارات",
+                services: "الخدمات",
+                portfolio: "معرض الأعمال",
+                contact_info: "معلومات التواصل",
+                name_full: "حمزة عبدالفتاح عبدالله سعيد",
+                job_title: "مصمم جرافيك ومونتاج فيديو",
+                job_title_label: "المسمى الوظيفي",
+                ready_to_work: "جاهز للعمل ✨",
+                birthdate: "تاريخ الميلاد",
+                nationality: "الجنسية",
+                yemeni: "يمني",
+                location: "الموقع",
+                taiz_yemen: "اليمن – تعز",
+                graphic_designer: "مصمم جرافيك ومونتاج فيديو",
+                present: "حتى الآن",
+                summary_text: "مصمم جرافيك محترف بخبرة منذ عام 2021 في <strong>مجموعة ابن الحاج التجارية</strong>. متخصص في <strong>تصميم الليبلات الزراعية بكافة أنواعها</strong> (أسمدة – مبيدات – بذور)، مع خبرة في معايير الطباعة والتعبئة والتغليف. أقدم خدمات شاملة في <strong>تصميم المنتجات، الهويات البصرية، التصاميم التسويقية، صناعة الفيديو والتحرير</strong>، مع الحرص على تحسين جودة التصاميم بما يتوافق مع العلامة التجارية.",
+                exp1: "تصميم الليبلات الزراعية الاحترافية وفق معايير الطباعة والتغليف.",
+                exp2: "إعداد وتنفيذ المطبوعات (بروشورات، كتالوجات، بوسترات، رول أب، عبوات).",
+                exp3: "تصميم الهويات البصرية الكاملة للشركات والمنتجات.",
+                exp4: "إنتاج محتوى تسويقي للسوشيال ميديا (صور – فيديوهات – موشن جرافيك).",
+                exp5: "تحسين جودة التصاميم والطباعة وفق متطلبات العلامة التجارية.",
+                exp6: "صناعة فيديوهات دعائية باحترافية عالية.",
+                exp7: "إخراج موك أب واقعي للمنتجات والتعبئة والتغليف.",
+                skill1: "تصميم الشعارات والليبلات",
+                skill2: "التصاميم التسويقية ومعالجة الصور",
+                skill3: "الموشن جرافيك وصناعة الفيديو",
+                skill4: "تحرير ومونتاج الفيديو",
+                expertise: "التخصصات:",
+                expertise1: "تصميم المنتجات الزراعية (أسمدة، مبيدات، بذور)",
+                expertise2: "التصاميم المتوافقة مع معايير الطباعة والتعبئة والتغليف",
+                expertise3: "الهويات البصرية والتصاميم التسويقية",
+                expertise4: "صناعة وتحرير الفيديوهات الدعائية",
+                service1: "تصميم المنتجات الزراعية",
+                service1_desc: "تصميم متكامل للمنتجات الزراعية وملصقاتها",
+                service2: "تصميم الهويات البصرية",
+                service2_desc: "إنشاء هوية بصرية متكاملة للشركات والمنتجات",
+                service3: "الحملات التسويقية والإعلانات",
+                service3_desc: "إعداد وتنفيذ الحملات التسويقية والإعلانية",
+                service4: "تحسين جودة الطباعة والتغليف",
+                service4_desc: "ضمان جودة الطباعة والتغليف للمنتجات",
+                service5: "صناعة الفيديوهات الدعائية والمونتاج",
+                service5_desc: "إنتاج فيديوهات دعائية احترافية بمونتاج متميز",
+                email: "البريد الإلكتروني",
+                phone: "الهاتف",
+                portfolio_link1: "معرض الأعمال (رابط 1)",
+                portfolio_link2: "معرض الأعمال (رابط 2 - Google Drive)",
+                linkedin_profile: "حمزة عبدالفتاح",
+                behance_gallery: "معرض المنتجات الزراعية",
+                click_to_view: "اضغط هنا لمشاهدة أعمالي",
+                contact_me: "تواصل معي",
+                name: "الاسم",
+                enter_name: "أدخل اسمك",
+                enter_email: "أدخل بريدك الإلكتروني",
+                subject: "الموضوع",
+                enter_subject: "أدخل عنوان الرسالة",
+                message: "الرسالة",
+                enter_message: "اكتب رسالتك هنا...",
+                send_message: "إرسال الرسالة",
+                sending: "جاري الإرسال...",
+                success_message: "تم إرسال رسالتك بنجاح! سأتواصل معك في أقرب وقت ممكن.",
+                error_message: "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+                download_cv: "تحميل السيرة الذاتية",
+                download: "تحميل",
+                download_instructions: "للحصول على نسخة من السيرة الذاتية، يرجى التواصل مباشرة عبر:",
+                close: "إغلاق"
+            }
+        };
+
+        // Set default language to English
+        let currentLang = 'en';
+        
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update HTML direction and language attribute
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'ar';
+                document.documentElement.classList.add('rtl-content');
+                document.querySelector('title').textContent = 'السيرة الذاتية - حمزة عبدالفتاح';
+                
+                // Move sidebar to right for Arabic
+                document.getElementById('sidebar').classList.remove('sidebar-en');
+                document.getElementById('sidebar').classList.add('sidebar-ar');
+                document.querySelector('main').classList.remove('md:ml-52');
+                document.querySelector('main').classList.add('md:mr-52');
+                
+                // Move download button to left for Arabic
+                document.getElementById('downloadCV').classList.remove('en');
+                document.getElementById('downloadCV').classList.add('ar');
+                
+                // Change timeline direction for Arabic
+                document.querySelector('.timeline-en').classList.remove('timeline-en');
+                document.querySelector('.timeline-en').classList.add('timeline-ar');
+                document.querySelector('.timeline-dot-en').classList.remove('timeline-dot-en');
+                document.querySelector('.timeline-dot-en').classList.add('timeline-dot-ar');
+                
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'en';
+                document.documentElement.classList.remove('rtl-content');
+                document.querySelector('title').textContent = 'CV - Hamza Abdulfattah';
+                
+                // Move sidebar to left for English
+                document.getElementById('sidebar').classList.remove('sidebar-ar');
+                document.getElementById('sidebar').classList.add('sidebar-en');
+                document.querySelector('main').classList.remove('md:mr-52');
+                document.querySelector('main').classList.add('md:ml-52');
+                
+                // Move download button to right for English
+                document.getElementById('downloadCV').classList.remove('ar');
+                document.getElementById('downloadCV').classList.add('en');
+                
+                // Change timeline direction for English
+                if (document.querySelector('.timeline-ar')) {
+                    document.querySelector('.timeline-ar').classList.remove('timeline-ar');
+                    document.querySelector('.timeline-ar').classList.add('timeline-en');
+                }
+                if (document.querySelector('.timeline-dot-ar')) {
+                    document.querySelector('.timeline-dot-ar').classList.remove('timeline-dot-ar');
+                    document.querySelector('.timeline-dot-ar').classList.add('timeline-dot-en');
+                }
+            }
+            
+            // Update language switcher button
+            const langButton = document.querySelector('.language-switcher button');
+            if (lang === 'ar') {
+                langButton.innerHTML = '<span class="flag-icon bg-green-600 text-white">AR</span><i class="fas fa-chevron-down text-xs mr-1 ml-1"></i>';
+            } else {
+                langButton.innerHTML = '<span class="flag-icon bg-blue-600 text-white">EN</span><i class="fas fa-chevron-down text-xs mr-1 ml-1"></i>';
+            }
+            
+            // Store language preference
+            localStorage.setItem('language', lang);
+        }
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Default to English
+            changeLanguage('en');
+            
+            // Add event listeners to language switcher
+            document.querySelectorAll('.language-dropdown a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        // Always start with light mode
+        // System preference check is intentionally disabled to always start with light mode
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // Mobile navigation toggle
+        const toggleNav = document.getElementById('toggleNav');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        toggleNav.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+        });
+        
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('#mobileNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+            });
+        });
+        
+        // Scroll animation for sections
+        const sections = document.querySelectorAll('.section');
+        
+        function animateSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('animate-fade-in');
+                    section.style.opacity = '1';
+                }
+            });
+        }
+        
+        // Animate progress bars for skills
+        const skillBars = document.querySelectorAll('.skill-card .progress-bar');
+        const skillPercentages = [95, 90, 85, 90]; // Percentages for each skill
+        
+        function animateProgressBars() {
+            skillBars.forEach((bar, index) => {
+                const sectionTop = document.getElementById('skills').getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    setTimeout(() => {
+                        bar.style.width = skillPercentages[index] + '%';
+                        document.querySelectorAll('.skill' + (index+1) + '-percentage').forEach(el => {
+                            el.textContent = skillPercentages[index] + '%';
+                        });
+                    }, 300 * index);
+                }
+            });
+        }
+        
+        // Run animations on page load and scroll
+        window.addEventListener('DOMContentLoaded', () => {
+            animateSections();
+            animateProgressBars();
+        });
+        
+        window.addEventListener('scroll', () => {
+            animateSections();
+            animateProgressBars();
+        });
+        
+        // Contact form handling with Formspree
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+        const sendButton = document.getElementById('sendButton');
+        const buttonText = document.getElementById('buttonText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            buttonText.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            sendButton.disabled = true;
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+            
+            try {
+                const formData = new FormData(contactForm);
+                
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                formError.classList.remove('hidden');
+                console.error('Error:', error);
+            } finally {
+                // Reset button state
+                buttonText.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+                sendButton.disabled = false;
+            }
+        });
+        
+        // Download CV functionality
+        const downloadBtn = document.getElementById('downloadCV');
+        const downloadModal = document.getElementById('downloadModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        downloadBtn.addEventListener('click', () => {
+            downloadModal.classList.remove('hidden');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            downloadModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        downloadModal.addEventListener('click', (e) => {
+            if (e.target === downloadModal) {
+                downloadModal.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
