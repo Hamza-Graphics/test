@@ -30,12 +30,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         * {
-            font-family: 'Inter', 'Tajawal', sans-serif;
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            box-sizing: border-box;
         }
         
-        .rtl-content {
-            direction: rtl;
-            font-family: 'Tajawal', sans-serif;
+        html {
+            font-size: 100%;
+            zoom: reset;
+        }
+        
+        body {
+            zoom: reset;
+            overflow-x: hidden;
         }
         
         .progress-bar {
@@ -67,7 +73,7 @@
         }
         
         .section {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 100px;
         }
         
         .service-icon {
@@ -91,7 +97,7 @@
         .language-dropdown {
             display: none;
             position: absolute;
-            right: 0;
+            left: 0;
             top: 100%;
             background-color: white;
             min-width: 120px;
@@ -142,7 +148,7 @@
         }
         
         .Hamza{
-          font-size: 13px;
+          font-size: 0.8125rem;
         }
         
         /* Animation for sidebar movement */
@@ -159,7 +165,7 @@
         /* Transition for sidebar movement */
         #sidebar {
             transition: left 0.3s ease, right 0.3s ease;
-            z-index: 40; /* إضافة z-index للقائمة الجانبية */
+            z-index: 40;
         }
         
         .software-logo {
@@ -181,13 +187,13 @@
         
         /* Download button position */
         #downloadCV.en {
-            right: 20px;
-            left: auto;
+            left: 20px;
+            right: auto;
         }
         
         #downloadCV.ar {
-            left: 20px;
-            right: auto;
+            right: 20px;
+            left: auto;
         }
         
         /* Experience timeline direction */
@@ -227,38 +233,40 @@
             border-right-color: #7d7ce6;
         }
         
-        /* الحل لمشكلة التداخل - إضافة هذه الأنماط */
+        /* الحل لمشكلة التداخل - هذه هي التعديلات الرئيسية */
         #sidebar {
             z-index: 40;
+            height: 100vh;
+            overflow-y: auto;
         }
         
         main {
             position: relative;
             z-index: 30;
-        }
-        
-        .section {
-            scroll-margin-top: 100px;
+            width: calc(100% - 12rem);
+            margin-right: 12rem;
+            transition: margin-right 0.3s ease;
         }
         
         @media (max-width: 767px) {
             #sidebar {
                 z-index: 45;
                 width: 100%;
-                left: -100%;
-                transition: left 0.3s ease;
+                right: -100%;
+                transition: right 0.3s ease;
             }
             
             #sidebar.active {
-                left: 0;
+                right: 0;
             }
             
             main {
-                margin-left: 0 !important;
                 margin-right: 0 !important;
+                width: 100%;
             }
         }
         
+        /* تحسينات للغة العربية */
         .rtl-content #sidebar.sidebar-ar {
             z-index: 40;
         }
@@ -266,7 +274,167 @@
         .rtl-content main {
             z-index: 30;
         }
+        
+        /* منع التداخل مع المحتوى */
+        .content-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        /* تحسينات للشريط الجانبي */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background-color: #5D5CDE;
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .dark .nav-link:hover {
+            color: white;
+        }
+        
+        /* تحسينات للاستجابة والتكبير/التصغير */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+        
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px;
+            }
+        }
+        
+        /* تحسينات للخطوط لتكون قابلة للتكيف */
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+        }
+        
+        p, li, a {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+        
+        /* تحسينات للصور */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* تحسينات للهوامش والمسافات */
+        .section {
+            margin-bottom: clamp(1rem, 5vw, 4rem);
+        }
+        
+        .mb-6 {
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+        }
+        
+        .p-6 {
+            padding: clamp(1rem, 3vw, 1.5rem);
+        }
+        
+        @media (min-width: 768px) {
+            .p-6 {
+                padding: clamp(1.5rem, 4vw, 2rem);
+            }
+        }
+        
+        /* تحسينات للشبكات */
+        .grid {
+            gap: clamp(0.5rem, 2vw, 1.5rem);
+        }
+        
+        /* تحسينات للأزرار */
+        button, .btn {
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+        }
+        
+        /* منع العناصر من الخروج عن الشاشة */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* تحسينات للتكبير/التصغير */
+        @media screen and (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (min-width: 769px) and (max-width: 1200px) {
+            html {
+                font-size: 15px;
+            }
+        }
+        
+        @media screen and (min-width: 1201px) and (max-width: 1600px) {
+            html {
+                font-size: 16px;
+            }
+        }
+        
+        @media screen and (min-width: 1601px) {
+            html {
+                font-size: 17px;
+            }
+        }
     </style>
+
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
     
